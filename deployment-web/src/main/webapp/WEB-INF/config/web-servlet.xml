@@ -66,7 +66,7 @@
 	</bean>
   
 	<!-- 异常处理，将AnnotationMethodHandlerAdapter同样规则来输出结果-->
-	<bean id="handlerExceptionResolver" class="com.ibeiliao.platform.web.spring.HandlerMethodExceptionResolver">
+	<bean id="handlerExceptionResolver" class="com.ibeiliao.deployment.admin.common.HandlerMethodExceptionResolver">
 		<property name="defaultErrorView" value="forward:/WEB-INF/jsp/exception.jsp"/>
 		<property name="messageConverters" ref="messageConverters"/>
 	</bean>

@@ -62,7 +62,7 @@
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <property name="basePackage" value="com.ibeiliao.deployment.admin.dao"/>
-        <property name="annotationClass" value="com.ibeiliao.platform.database.MyBatisDao"/>
+        <property name="annotationClass" value="com.ibeiliao.deployment.datasource.MyBatisDao"/>
     </bean>
 
     <!-- datasource 事务 -->

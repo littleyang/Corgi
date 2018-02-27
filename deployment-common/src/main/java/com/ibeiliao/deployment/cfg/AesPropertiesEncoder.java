@@ -37,4 +37,10 @@ public class AesPropertiesEncoder implements PropertiesEncoder {
         return s;
     }
 
+    public static void main(String[] args) {
+        AesPropertiesEncoder encoder = new AesPropertiesEncoder();
+        System.out.println(encoder.encode(""));
+        System.out.println(encoder.encode("root"));
+    }
+
 }

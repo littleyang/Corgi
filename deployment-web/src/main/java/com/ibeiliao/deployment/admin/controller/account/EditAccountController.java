@@ -1,7 +1,5 @@
 package com.ibeiliao.deployment.admin.controller.account;
 
-import com.beiliao.sso.domain.Admin;
-import com.beiliao.sso.stub.SsoProvider;
 import com.ibeiliao.deployment.admin.annotation.log.AdminLog;
 import com.ibeiliao.deployment.admin.common.RestResult;
 import com.ibeiliao.deployment.admin.service.account.AdminAccountService;
@@ -40,9 +38,6 @@ public class EditAccountController {
 
     @Autowired
     private AdminAccountService adminAccountService;
-
-    @Autowired
-    private SsoProvider ssoProvider;
 
     /**
      * 增加管理员主页，xhtml 仅用于展示页面，
@@ -83,13 +78,6 @@ public class EditAccountController {
 
         Set<Integer> roles = new HashSet<>();
         roles.add(account.getRoleId());
-        if (account.getUid() <= 0) {
-            Admin admin = ssoProvider.getAdmin(account.getAccount());
-            if (admin == null) {
-                return new RestResult<>(ApiCode.PARAMETER_ERROR, account.getAccount() + "没有在SSO开通，请联系管理员开通帐号");
-            }
-            account.setUid(admin.getId());
-        }
         adminAccountService.addOrUpdate(account, roles);
 
         RestResult<Object> result = new RestResult<>(ApiCode.SUCCESS, "操作成功.");

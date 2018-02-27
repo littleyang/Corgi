@@ -53,12 +53,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.beiliao</groupId>
-            <artifactId>sso-stub</artifactId>
-            <version>${beiliao.sso-stub.version}</version>
-        </dependency>
-
-        <dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
@@ -333,7 +327,6 @@
             <properties>
                 <profiles.active>test</profiles.active>
             </properties>
-
         </profile>
         <profile>
             <id>dev</id>

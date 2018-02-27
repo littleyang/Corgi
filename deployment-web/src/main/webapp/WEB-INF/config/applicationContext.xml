@@ -44,8 +44,8 @@
 		<aop:advisor advice-ref="druid-stat-interceptor" pointcut-ref="druid-stat-pointcut" />
 	</aop:config>
 
-	<!--<import resource="classpath:/datasource.xml" />-->
-	<!--<import resource="classpath:/redis.xml" />-->
+	<import resource="classpath:/datasource.xml" />
+	<import resource="classpath:/redis.xml" />
 
 	<!-- 线程池 -->
 	<bean id="threadPoolTaskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">

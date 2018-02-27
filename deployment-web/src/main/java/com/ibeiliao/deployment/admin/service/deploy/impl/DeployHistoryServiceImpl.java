@@ -802,7 +802,7 @@ public class DeployHistoryServiceImpl implements DeployHistoryService {
             StringBuilder successInfo = new StringBuilder();
             for (Map.Entry<String, Boolean> entry : ip2ResultMap.entrySet()) {
                 if (entry.getValue()) {
-                    successInfo.append("<span class='text-green'>" + entry.getKey() + "发布成功</span><br/>");
+                    successInfo.append("<span class='text-red'>" + entry.getKey() + "发布失败</span><br/>");
                 }
             }
 

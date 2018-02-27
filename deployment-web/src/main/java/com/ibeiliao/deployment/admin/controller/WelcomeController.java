@@ -1,6 +1,5 @@
 package com.ibeiliao.deployment.admin.controller;
 
-import com.beiliao.sso.stub.SsoProvider;
 import com.ibeiliao.deployment.admin.annotation.authority.AllowAnonymous;
 import com.ibeiliao.deployment.admin.context.AdminContext;
 import com.ibeiliao.deployment.admin.context.AdminLoginUser;
@@ -36,9 +35,6 @@ public class WelcomeController {
     private static final Logger logger = LoggerFactory.getLogger(WelcomeController.class);
 
     @Autowired
-    SsoProvider ssoProvider;
-
-    @Autowired
     AdminAccountService adminAccountService;
 
 
@@ -69,7 +65,8 @@ public class WelcomeController {
         ParameterUtil.assertNotBlank(account, "账户不能为空");
         ParameterUtil.assertNotBlank(token, "token不能为空");
 
-        String t = ssoProvider.getSessionId(account);
+        // TODO 提供一个账号登录
+        String t = "";//ssoProvider.getSessionId(account);
         if (StringUtils.isEmpty(t) || !t.equals(token)){
             logger.error("账户:{} 登录信息不匹配, 重新跳转登录页面 | token: {}, t: {}", account, token, t);
             return "redirect:" + AppConstants.SSO_LOGIN_URL;

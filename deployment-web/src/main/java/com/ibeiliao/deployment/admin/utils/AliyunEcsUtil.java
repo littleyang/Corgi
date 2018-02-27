@@ -352,41 +352,6 @@ public class AliyunEcsUtil {
         return EncryptionPropertyPlaceholderConfigurer.getConfig("aliyun.ecs.accessKeySecret.encryption");
     }
 
-//    /**
-//     * 查看云服务器实例的监控信息:
-//     * https://help.aliyun.com/document_detail/25612.html?spm=5176.doc25620.6.909.EKwDmJ
-//     *
-//     * @param instanceId
-//     * @param startTime
-//     * @param endTime
-//     * @return
-//     */
-//    private static EcsMonitor loadMonitor(String instanceId, String startTime, String endTime) {
-//        if (!instanceEcsMap.containsKey(instanceId)) {
-//            return null;
-//        }
-//        String accessKeyId = getAccessKeyId();
-//        String accessKeySecret = getAccessKeySecret();
-//
-//        DescribeInstanceMonitorDataRequest request = new DescribeInstanceMonitorDataRequest();
-//        String region = instanceEcsMap.get(instanceId).getRegionId();
-//        IClientProfile profile = DefaultProfile.getProfile(region, accessKeyId, accessKeySecret);
-//        IAcsClient client = new DefaultAcsClient(profile);
-//        try {
-//            request.setStartTime(startTime);
-//            request.setEndTime(endTime);
-//            request.setInstanceId(instanceId);
-//            request.setPeriod(60);
-//            logger.info("request: " + JSON.toJSONString(request));
-//            DescribeInstanceMonitorDataResponse response = client.getAcsResponse(request);
-//            logger.info("monitor data: " + JSON.toJSONString(response.getMonitorData()));
-//
-//            return new EcsMonitor();
-//        } catch (Exception e) {
-//            logger.error("读取监控数据错误", e);
-//        }
-//        return null;
-//    }
 
     private static int getValueFromJvmArg(String jvmArg, String option, int defaultValue) {
         if (StringUtils.isEmpty(jvmArg)) {

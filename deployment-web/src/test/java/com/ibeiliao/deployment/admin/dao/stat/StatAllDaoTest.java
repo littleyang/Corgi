@@ -1,7 +1,7 @@
 package com.ibeiliao.deployment.admin.dao.stat;
 
 import com.ibeiliao.deployment.admin.po.stat.StatAllPO;
-import com.ibeiliao.platform.util.DateUtil;
+import com.ibeiliao.deployment.common.util.DateUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 /**
  * 功能：测试 StatAllDao
