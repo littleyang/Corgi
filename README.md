@@ -56,7 +56,7 @@ Corgi
 所以，总的来说，如果你的java项目是通过resin/内嵌tomcat 的方式进行部署，都能够被本系统完美支持。
 
 # 相关文档
-初始化文档：[系统初始化文档](/doc/init.md)
+初始化文档：[系统初始化文档](/doc/init.md)  
 功能介绍：[一个发布系统至少应该包含的功能](/doc/a-deployment-system.md)    
 最佳实践：[贝聊在系统上的使用总结](/doc/best-practice-in-BL.md)  
 

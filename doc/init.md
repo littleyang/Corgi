@@ -50,3 +50,19 @@ echo  "127.0.0.1"  >  /etc/ansible/hosts
 
 
 ### 编译服务器的从初始化  
+**1.创建web用户**
+将web用户的密钥同步到这台机器上  
+
+**2.配置web用户的目录权限**  
+web用户的操作目录脚本都在/data/目录，按照功能来讲分为以下几个目录  
+**/data/project/**:主要是放具体项目的部署打包文件目录，比如passport、pay、public-service等具体项目的目录，
+每个目录下会有不同的模块目录，模块目录下有具体的打包文件。  
+  
+**/data/project/** 目录下还有一个比较特殊的目录，**shell** ，即/data/project/shell，这个目录是存放具体各个项目
+发布的shell脚本，发布系统通过执行这些shell脚本来实现启动、回滚、停止、重启的功能。  
+
+**/data/webapps/**:该目录是resin服务器相关项目部署解压的目录，一个war包被打包传输到/data/project/目录下后
+resin启动该项目后会将war包内容解压放到/data/webapps/目录下，子目录是发布系统项目配置的域名作为下一级目录，比如
+"passport.beiliao.com"  
+
+**所以总的来说，必须保证web用户是/data/project/ /data/webapps/目录的所有者，拥有rwx权限**
