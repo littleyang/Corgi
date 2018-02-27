@@ -55,8 +55,6 @@
 		<jackson.databind.version>2.7.3</jackson.databind.version>
 		<jackson.annotations.version>2.7.0</jackson.annotations.version>
 
-        <beiliao.sso-stub.version>1.0.9-RELEASE</beiliao.sso-stub.version>
-
     </properties>
 
     <build>
