@@ -42,7 +42,7 @@ Corgi
 > 2.将打好的包从发布系统开始分发到各个业务服务器  
 > 3.启动一个agent(web服务)，用于接收从编译服务器的编译过程日志以及业务系统发布过程产生的日志(不含业务日志)   
 
-![架构图](http://7xrmyq.com1.z0.glb.clouddn.com/deploy.png)
+![架构图](http://7xrmyq.com1.z0.glb.clouddn.com/deploy2.png)
 
 # 限制
 **1.只支持resin服务器**  
