@@ -66,6 +66,14 @@
 						</div>
 
 						<div class="form-group">
+							<label class="col-md-2 control-label">密码</label>
+							<div class="col-md-3">
+								<input class="form-control" type="text" id="password" name="password"
+									   title="密码" placeholder="密码" maxlength="30" data-minlength="1" required="true">
+							</div>
+						</div>
+
+						<div class="form-group">
 							<label class="col-md-2 control-label">角色</label>
 							<div class="col-md-3">
 								<input type="hidden" name="roleId" id="roleId"
@@ -150,6 +158,7 @@
 						$('#mobileNo').val('');
 						$('#realname').val('');
 						$('#account').val('');
+                        $('#password').val('');
 					}
 
 				} catch (e) {
@@ -171,6 +180,7 @@
 					$('#account').val(account.account);
 					$('#mobileNo').val(account.mobileNo);
 					$('#realname').val(account.realname);
+                    $('#password').val(account.password);
 					$('.btn-primary').html('更新');
 				}
 				else {
@@ -186,11 +196,15 @@
 		var mobileNo = $.trim($('#mobileNo').val());
 		var realname = $('realname').val();
 		var account = $.trim($('#account').val());
+		var password = $.trim($('#password').val());
 		var uid = $('#uid').val();
 		var message = '';
 
 		if (account == '') {
 			message = '请输入帐号';
+		}
+		else if(password == ''){
+            message = '请输入密码';
 		}
 		else if (mobileNo == '') {
 			message = '请输入手机号码.';

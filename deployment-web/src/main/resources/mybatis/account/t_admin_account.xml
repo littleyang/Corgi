@@ -5,7 +5,7 @@
 
 	<!-- 新增 -->
 	<insert id="save" parameterType="com.ibeiliao.deployment.admin.po.account.AdminAccountPO" useGeneratedKeys="false" >
-		insert into t_account (uid,account,password,realname,operator,account_status,mobile_no,default_data,last_modify,create_time) values (#{uid},#{account},#{realname},#{operator},#{accountStatus},#{mobileNo},#{defaultData},#{lastModify},#{createTime})
+		insert into t_account (uid,account,password,realname,operator,account_status,mobile_no,default_data,last_modify,create_time) values (#{uid},#{account},#{password},#{realname},#{operator},#{accountStatus},#{mobileNo},#{defaultData},#{lastModify},#{createTime})
 	</insert>
 
 	<!-- 根据主键，删除数据 -->
@@ -15,7 +15,7 @@
 
 	<!-- 更新 -->
 	<update id="update" parameterType="com.ibeiliao.deployment.admin.po.account.AdminAccountPO">
-		update t_account set account=#{account},realname=#{realname},operator=#{operator},mobile_no=#{mobileNo},last_modify=#{lastModify} where uid=#{uid}
+		update t_account set account=#{account},password=#{password},realname=#{realname},operator=#{operator},mobile_no=#{mobileNo},last_modify=#{lastModify} where uid=#{uid}
 	</update>
 
 	<!-- 根据主键读取记录（主键可能有多个） -->
