@@ -3,6 +3,7 @@ package com.ibeiliao.deployment.admin.controller.account;
 import com.ibeiliao.deployment.admin.annotation.log.AdminLog;
 import com.ibeiliao.deployment.admin.common.RestResult;
 import com.ibeiliao.deployment.admin.service.account.AdminAccountService;
+import com.ibeiliao.deployment.admin.utils.MD5Util;
 import com.ibeiliao.deployment.admin.utils.resource.Menu;
 import com.ibeiliao.deployment.admin.utils.resource.MenuResource;
 import com.ibeiliao.deployment.admin.vo.account.AccountRoleRelation;
@@ -72,9 +73,16 @@ public class EditAccountController {
         if (StringUtils.isBlank(account.getRealname())) {
             return new RestResult<>(ApiCode.PARAMETER_ERROR, "真实姓名不能为空");
         }
+        if (StringUtils.isBlank(account.getPassword())){
+            return new RestResult<>(ApiCode.PARAMETER_ERROR,"密码不能为空");
+        }
         if (account.getRoleId() <= 0) {
             return new RestResult<>(ApiCode.PARAMETER_ERROR, "请选择一个角色");
         }
+        /**
+         * 对更新的密码用MD5加密
+         */
+        account.setPassword(MD5Util.md5(account.getPassword()));
 
         Set<Integer> roles = new HashSet<>();
         roles.add(account.getRoleId());
