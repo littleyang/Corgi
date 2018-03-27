@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : deploy-test
+ Source Server         : localhost
  Source Server Type    : MySQL
- Source Server Version : 50627
- Source Host           : 116.62.231.19
- Source Database       : ibl_deployment_system
+ Source Server Version : 50626
+ Source Host           : localhost
+ Source Database       : deploy
 
  Target Server Type    : MySQL
- Target Server Version : 50627
+ Target Server Version : 50626
  File Encoding         : utf-8
 
- Date: 02/27/2018 15:08:27 PM
+ Date: 03/27/2018 15:24:07 PM
 */
 
 SET NAMES utf8mb4;
@@ -23,6 +23,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `t_account`;
 CREATE TABLE `t_account` (
   `uid` bigint(11) NOT NULL DEFAULT '0' COMMENT '主键',
+  `password` varchar(64) NOT NULL COMMENT '密码',
   `account` varchar(50) NOT NULL COMMENT '贝聊账号',
   `operator` int(11) NOT NULL DEFAULT '0' COMMENT '操作人id',
   `realname` varchar(50) NOT NULL COMMENT '真名',
@@ -33,6 +34,13 @@ CREATE TABLE `t_account` (
   `default_data` tinyint(2) NOT NULL DEFAULT '0' COMMENT '是否是基本用户( 可以理解为是否是管理员)，0-不是，1-是,不可以删除',
   PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
+
+-- ----------------------------
+--  Records of `t_account`
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_account` VALUES ('1', 'e10adc3949ba59abbe56e057f20f883e', 'lgl', '1', '梁广龙', '15521110047', '2018-03-26 20:59:56', '2018-03-26 20:59:59', '1', '1');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `t_account_role_relation`
@@ -60,7 +68,7 @@ CREATE TABLE `t_admin_operation_log` (
   PRIMARY KEY (`log_id`),
   KEY `idx_account_time` (`uid`,`create_time`),
   KEY `idx_time_operation_type` (`create_time`,`operation_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=2677 DEFAULT CHARSET=utf8 COMMENT='管理员操作日志';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='管理员操作日志';
 
 -- ----------------------------
 --  Table structure for `t_app_define`
@@ -81,7 +89,7 @@ CREATE TABLE `t_app_define` (
   `create_time` datetime NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`app_id`),
   UNIQUE KEY `uniq_Key_app_name` (`app_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='应用系统信息';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='应用系统信息';
 
 -- ----------------------------
 --  Table structure for `t_deploy_history`
@@ -119,7 +127,7 @@ CREATE TABLE `t_deploy_history` (
   KEY `idx_create_time` (`create_time`),
   KEY `idx_deployTime` (`deploy_time`) USING BTREE,
   KEY `idx_account_id` (`account_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=9765 DEFAULT CHARSET=utf8 COMMENT='发布历史';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='发布历史';
 
 -- ----------------------------
 --  Table structure for `t_global_setting`
@@ -164,7 +172,14 @@ CREATE TABLE `t_menu` (
   `create_time` datetime NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`menu_id`),
   UNIQUE KEY `uniq_Key_app_id` (`app_id`,`menu_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=2112021632 DEFAULT CHARSET=utf8 COMMENT='菜单';
+) ENGINE=InnoDB AUTO_INCREMENT=2133326262 DEFAULT CHARSET=utf8 COMMENT='菜单';
+
+-- ----------------------------
+--  Records of `t_menu`
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_menu` VALUES ('403425958', '2133326261', '1', '发布', '', '700000', '1', '2018-03-27 15:01:41', '0', '2018-03-27 15:01:41'), ('501947879', '1447280342', '1', '低质量发布', '', '700000', '1', '2018-03-27 15:01:41', '0', '2018-03-27 15:01:41'), ('539689649', '0', '1', '全局配置管理', '', '900000', '1', '2018-03-27 15:01:41', '0', '2018-03-27 15:01:41'), ('578506625', '539689649', '1', '环境列表', '', '500036', '1', '2018-03-27 15:01:41', '0', '2018-03-27 15:01:41'), ('619747848', '0', '1', '帐号管理', '', '100000', '1', '2018-03-27 15:01:40', '0', '2018-03-27 15:01:40'), ('716708294', '2133326261', '1', '发布记录', '', '900000', '1', '2018-03-27 15:01:41', '0', '2018-03-27 15:01:41'), ('1050797901', '1375765154', '1', '项目详情', '', '500038', '1', '2018-03-27 15:01:41', '0', '2018-03-27 15:01:41'), ('1110639353', '1447280342', '1', '按项目统计', '', '800000', '1', '2018-03-27 15:01:41', '0', '2018-03-27 15:01:41'), ('1264419240', '619747848', '1', '角色列表', '', '500000', '1', '2018-03-27 15:01:40', '0', '2018-03-27 15:01:40'), ('1265630538', '1375765154', '1', '模块详情', '', '500037', '1', '2018-03-27 15:01:41', '0', '2018-03-27 15:01:41'), ('1328382829', '619747848', '1', '管理员列表', '', '400000', '1', '2018-03-27 15:01:40', '0', '2018-03-27 15:01:40'), ('1375765154', '0', '1', '项目管理', '', '1099999', '1', '2018-03-27 15:01:41', '0', '2018-03-27 15:01:41'), ('1444380220', '619747848', '1', '增加/修改角色', '', '490000', '1', '2018-03-27 15:01:40', '0', '2018-03-27 15:01:40'), ('1447280342', '0', '1', '统计', '', '500000', '1', '2018-03-27 15:01:41', '0', '2018-03-27 15:01:41'), ('1549507868', '1375765154', '1', '项目列表', '', '500039', '1', '2018-03-27 15:01:41', '0', '2018-03-27 15:01:41'), ('1634833334', '2133326261', '1', '创建上线单', '', '1000000', '1', '2018-03-27 15:01:41', '0', '2018-03-27 15:01:41'), ('1710546407', '2133326261', '1', '发布详情', '', '800000', '1', '2018-03-27 15:01:41', '0', '2018-03-27 15:01:41'), ('2027353109', '1447280342', '1', '按环境统计', '', '900000', '1', '2018-03-27 15:01:41', '0', '2018-03-27 15:01:41'), ('2064158090', '619747848', '1', '增加/修改管理员', '', '390000', '1', '2018-03-27 15:01:40', '0', '2018-03-27 15:01:40'), ('2133326261', '0', '1', '项目发布', '', '950000', '1', '2018-03-27 15:01:41', '0', '2018-03-27 15:01:41');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `t_menu_resources_relation`
@@ -175,6 +190,13 @@ CREATE TABLE `t_menu_resources_relation` (
   `res_id` int(11) NOT NULL COMMENT '资源id',
   PRIMARY KEY (`menu_id`,`res_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='菜单与资源对应表';
+
+-- ----------------------------
+--  Records of `t_menu_resources_relation`
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_menu_resources_relation` VALUES ('403425958', '1508724792'), ('403425958', '1534282863'), ('501947879', '590675340'), ('501947879', '1095019264'), ('578506625', '578506625'), ('578506625', '1542090117'), ('578506625', '2131415867'), ('716708294', '102820637'), ('716708294', '614414224'), ('716708294', '723930349'), ('716708294', '931031267'), ('716708294', '1114507269'), ('716708294', '1392474487'), ('716708294', '1609851906'), ('716708294', '2093356949'), ('1050797901', '244718962'), ('1050797901', '405161938'), ('1050797901', '1050797901'), ('1050797901', '1705677228'), ('1050797901', '1787261272'), ('1050797901', '1875555807'), ('1110639353', '418198772'), ('1110639353', '1495227657'), ('1264419240', '616097641'), ('1264419240', '1264419240'), ('1264419240', '1574603878'), ('1265630538', '101325062'), ('1265630538', '972136918'), ('1265630538', '1558663308'), ('1265630538', '1942032933'), ('1265630538', '2012793559'), ('1328382829', '29453733'), ('1328382829', '816462416'), ('1328382829', '1298862981'), ('1444380220', '286952581'), ('1444380220', '537609575'), ('1444380220', '615557575'), ('1549507868', '744239864'), ('1549507868', '1549507868'), ('1549507868', '2080419363'), ('1634833334', '225384434'), ('1634833334', '833599740'), ('1634833334', '1556062695'), ('1634833334', '1634833334'), ('1710546407', '540530756'), ('1710546407', '1710546407'), ('1710546407', '1746249879'), ('2027353109', '561626920'), ('2027353109', '1199879837'), ('2064158090', '740189465'), ('2064158090', '1056731337'), ('2064158090', '1854899268');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `t_module_conf`
@@ -201,7 +223,7 @@ CREATE TABLE `t_module_jvm` (
   `jvm_args` varchar(255) NOT NULL DEFAULT '' COMMENT 'jvm 参数',
   PRIMARY KEY (`module_jvm_id`),
   KEY `idx_moduleId` (`module_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=187 DEFAULT CHARSET=utf8 COMMENT='模块在每个环境的jvm参数';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='模块在每个环境的jvm参数';
 
 -- ----------------------------
 --  Table structure for `t_project`
@@ -220,7 +242,7 @@ CREATE TABLE `t_project` (
   PRIMARY KEY (`project_id`),
   UNIQUE KEY `uniq_projectName` (`project_name`) USING BTREE,
   UNIQUE KEY `uniq_projectNo` (`project_no`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8 COMMENT='项目';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='项目';
 
 -- ----------------------------
 --  Table structure for `t_project_account_relation`
@@ -243,7 +265,7 @@ CREATE TABLE `t_project_env` (
   `env_name` varchar(40) NOT NULL COMMENT '环境名称，dev test pre online',
   `online_flag` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否是线上环境，0不是，1 是',
   PRIMARY KEY (`env_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='环境配置表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='环境配置表';
 
 -- ----------------------------
 --  Table structure for `t_project_module`
@@ -271,7 +293,7 @@ CREATE TABLE `t_project_module` (
   `jvm_args` varchar(255) NOT NULL DEFAULT '' COMMENT 'JVM参数表',
   PRIMARY KEY (`module_id`),
   KEY `idx_moduleName` (`module_name`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8 COMMENT='模块详情';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='模块详情';
 
 -- ----------------------------
 --  Table structure for `t_role`
@@ -286,7 +308,7 @@ CREATE TABLE `t_role` (
   `last_modify` datetime NOT NULL COMMENT '操作时间',
   `create_time` datetime NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='角色定义';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色定义';
 
 -- ----------------------------
 --  Table structure for `t_role_app_relation`
@@ -330,7 +352,7 @@ CREATE TABLE `t_server` (
   `group_id` int(11) NOT NULL COMMENT '所在的服务器组',
   PRIMARY KEY (`server_id`),
   KEY `idx_groupId` (`group_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=317 DEFAULT CHARSET=utf8 COMMENT='服务器表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='服务器表';
 
 -- ----------------------------
 --  Table structure for `t_server_deploy_history`
@@ -346,7 +368,7 @@ CREATE TABLE `t_server_deploy_history` (
   `deploy_status` tinyint(4) NOT NULL COMMENT ' 1-发布成功，2-发布失败 3-等待部署',
   PRIMARY KEY (`id`),
   KEY `idx_history_id` (`history_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9791 DEFAULT CHARSET=utf8 COMMENT='发布历史';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='发布历史';
 
 -- ----------------------------
 --  Table structure for `t_server_deploy_log`
@@ -359,7 +381,7 @@ CREATE TABLE `t_server_deploy_log` (
   `create_time` datetime NOT NULL COMMENT '插入时间',
   PRIMARY KEY (`log_id`),
   KEY `idx_server_deploy_id_uindex` (`server_deploy_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=67050 DEFAULT CHARSET=utf8 COMMENT='服务器发布shell日志记录';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='服务器发布shell日志记录';
 
 -- ----------------------------
 --  Table structure for `t_server_group`
@@ -372,7 +394,7 @@ CREATE TABLE `t_server_group` (
   `module_id` int(11) NOT NULL COMMENT '关联的模块',
   `create_time` datetime NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`group_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=266 DEFAULT CHARSET=utf8 COMMENT='服务器组';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='服务器组';
 
 -- ----------------------------
 --  Table structure for `t_stat_all`
@@ -387,7 +409,7 @@ CREATE TABLE `t_stat_all` (
   `failure` int(11) NOT NULL COMMENT '失败次数',
   PRIMARY KEY (`stat_id`),
   UNIQUE KEY `uniq_key_stat_date_env` (`stat_date`,`env_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=411 DEFAULT CHARSET=utf8 COMMENT='总的发布次数，根据deploy_time统计，未开始发布和result/stop的不算';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='总的发布次数，根据deploy_time统计，未开始发布和result/stop的不算';
 
 -- ----------------------------
 --  Table structure for `t_stat_project`
@@ -403,7 +425,7 @@ CREATE TABLE `t_stat_project` (
   `failure` int(11) NOT NULL COMMENT '失败次数',
   PRIMARY KEY (`stat_id`),
   UNIQUE KEY `uniq_key_stat_date_env_project` (`stat_date`,`env_id`,`project_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2286 DEFAULT CHARSET=utf8 COMMENT='项目的发布次数统计，根据deploy_time统计，未开始发布和result/stop的不算';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='项目的发布次数统计，根据deploy_time统计，未开始发布和result/stop的不算';
 
 -- ----------------------------
 --  Table structure for `t_url_resource`
@@ -423,6 +445,13 @@ CREATE TABLE `t_url_resource` (
   PRIMARY KEY (`res_id`),
   UNIQUE KEY `uniq_Key_app_uri` (`app_id`,`uri`),
   KEY `idx_Key_parent_id` (`parent_res_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2137056006 DEFAULT CHARSET=utf8 COMMENT='权限控制的资源';
+) ENGINE=InnoDB AUTO_INCREMENT=2131415868 DEFAULT CHARSET=utf8 COMMENT='权限控制的资源';
+
+-- ----------------------------
+--  Records of `t_url_resource`
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_url_resource` VALUES ('29453733', '0', '冻结/解冻管理员', '/admin/account/lockOrUnlockAccount.do', '1', '2018-03-27 15:01:40', '0', '1', '1', '2018-03-27 15:01:40'), ('101325062', '0', '加载初始化的项目和服务器组数据', '/admin/project/moduleBaseInfo', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('102820637', '0', '回滚', '/admin/deploy/rollBack.do', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('225384434', '0', '创建上线单主页', '/admin/deploy/create.xhtml', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('244718962', '0', '获取项目', '/admin/project/getProject', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('286952581', '0', '读取角色菜单', '/admin/account/allAppMenus', '1', '2018-03-27 15:01:40', '0', '1', '1', '2018-03-27 15:01:40'), ('405161938', '0', '重启服务', '/admin/project/restartServer.do', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('418198772', '0', '查询各项目的发布情况', '/admin/stat/queryStatProject', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('537609575', '0', '增加/修改角色信息', '/admin/account/updateRole.do', '1', '2018-03-27 15:01:40', '0', '1', '1', '2018-03-27 15:01:40'), ('540530756', '0', '发布详情主页', '/admin/deploy/view.xhtml', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('561626920', '0', '按环境统计主页', '/admin/stat/statAll.xhtml', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('578506625', '0', '环境列表', '/admin/env/listEnv.xhtml', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('590675340', '0', '低质量发布主页', '/admin/stat/lowQualityRank.xhtml', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('614414224', '0', '发布记录列表', '/admin/deploy/list', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('615557575', '0', '增加/修改角色主页', '/admin/account/editRole.xhtml', '1', '2018-03-27 15:01:40', '0', '1', '1', '2018-03-27 15:01:40'), ('616097641', '0', '读取所有角色列表', '/admin/account/allRoles', '1', '2018-03-27 15:01:40', '0', '1', '1', '2018-03-27 15:01:40'), ('723930349', '0', '审核发布记录', '/admin/deploy/audit.do', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('740189465', '0', '读取管理员信息', '/admin/account/getAdmin', '1', '2018-03-27 15:01:40', '0', '1', '1', '2018-03-27 15:01:40'), ('744239864', '0', '保存项目', '/admin/project/save.do', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('816462416', '0', '读取管理员列表', '/admin/account/queryAccount', '1', '2018-03-27 15:01:40', '0', '1', '1', '2018-03-27 15:01:40'), ('833599740', '0', '查询分支列表', '/admin/deploy/listRepository', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('931031267', '0', '拒绝发布记录', '/admin/deploy/reject.do', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('972136918', '0', '编辑模块', '/admin/project/editModule.xhtml', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1050797901', '0', '项目详情', '/admin/project/projectDetail', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1056731337', '0', '增加/修改管理员信息', '/admin/account/updateAccount.do', '1', '2018-03-27 15:01:40', '0', '1', '1', '2018-03-27 15:01:40'), ('1095019264', '0', '查询低质量发布数据', '/admin/stat/queryLowQualityRank', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1114507269', '0', 'REDO发布记录', '/admin/deploy/redo.do', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1199879837', '0', '查询所有项目的发布情况', '/admin/stat/queryStatAll', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1264419240', '0', '角色列表', '/admin/account/queryRole', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1298862981', '0', '管理员列表主页', '/admin/account/listAccount.xhtml', '1', '2018-03-27 15:01:40', '0', '1', '1', '2018-03-27 15:01:40'), ('1392474487', '0', '发布记录列表主页', '/admin/deploy/list.xhtml', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1495227657', '0', '按项目统计主页', '/admin/stat/statProject.xhtml', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1508724792', '0', '发布主页', '/admin/deploy/deploy.xhtml', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1534282863', '0', '开始发布', '/admin/deploy/startDeploy.do', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1542090117', '0', '保存环境', '/admin/env/save.do', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1549507868', '0', '项目列表', '/admin/project/listProject.xhtml', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1556062695', '0', '查询模块服务器列表', '/admin/deploy/queryModuleServer', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1558663308', '0', '获取模块数据', '/admin/project/getModule', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1574603878', '0', '角色列表主页', '/admin/account/listRole.xhtml', '1', '2018-03-27 15:01:40', '0', '1', '1', '2018-03-27 15:01:40'), ('1609851906', '0', '取消发布记录', '/admin/deploy/cancel.do', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1634833334', '0', '创建上线单', '/admin/deploy/create.do', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1705677228', '0', '停止服务', '/admin/project/stopServer.do', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1710546407', '0', '发布详情', '/admin/deploy/getDeployHistory', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1746249879', '0', '读取服务器发布日志', '/admin/deploy/getServerDeployLog', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1787261272', '0', '删除模块', '/admin/project/deleteModule.do', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1854899268', '0', '增加/修改管理员主页', '/admin/account/editAccount.xhtml', '1', '2018-03-27 15:01:40', '0', '1', '1', '2018-03-27 15:01:40'), ('1875555807', '0', '查看项目', '/admin/project/viewProject.xhtml', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('1942032933', '0', 'ping服务器', '/admin/project/ping', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('2012793559', '0', '保存模块详情', '/admin/project/saveModule.do', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('2080419363', '0', '读取项目列表', '/admin/project/list', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('2093356949', '0', '正在进行发布的数量', '/admin/deploy/getDeployingNum', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41'), ('2131415867', '0', '读取环境列表', '/admin/env/list', '1', '2018-03-27 15:01:41', '0', '1', '1', '2018-03-27 15:01:41');
+COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
