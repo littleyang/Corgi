@@ -1,7 +1,7 @@
 package com.ibeiliao.deployment.cfg;
 
 
-import com.ibeiliao.deployment.common.util.DES3;
+import com.ibeiliao.deployment.common.util.AESUtil;
 
 /**
  * AES实现加解密
@@ -9,17 +9,16 @@ import com.ibeiliao.deployment.common.util.DES3;
  *
  */
 public class AesPropertiesEncoder implements PropertiesEncoder {
-    
-    /**
+     /**
      * the key
      */
-    public static final String KEY = "D5EFAEE2D37B423AAA43AC67B5EDC3FB";
+    private static final String KEY = "z$t05ch*pUe%";
 
     @Override
     public String encode(String str) {
         String s = "";
 		try {
-			s = DES3.encrypt(str, KEY);
+			s = AESUtil.encrypt(KEY, str);
 		} catch (Exception e) {
 			throw new RuntimeException("加密错误", e);
 		}
@@ -30,21 +29,17 @@ public class AesPropertiesEncoder implements PropertiesEncoder {
     public String decode(String str) {
         String s = "";
 		try {
-			s = DES3.decrypt(str, KEY);
+			s = AESUtil.decrypt(KEY, str);
 		} catch (Exception e) {
 			throw new RuntimeException("解密错误: " + str, e);
 		}
         return s;
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         AesPropertiesEncoder encoder = new AesPropertiesEncoder();
-
-        String encrypt = DES3.encrypt("root", AesPropertiesEncoder.KEY);
-        System.out.println(encrypt);
-        //System.out.println(DES3.decrypt(encrypt, AesPropertiesEncoder.KEY));
-        String encrypt1 = DES3.encrypt("", AesPropertiesEncoder.KEY);
-        System.out.println(encrypt1);
+        System.out.println(encoder.encode(""));
+        System.out.println(encoder.encode("root"));
     }
 
 }
