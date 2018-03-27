@@ -5,7 +5,7 @@
 
 	<!-- 新增 -->
 	<insert id="save" parameterType="com.ibeiliao.deployment.admin.po.account.AdminAccountPO" useGeneratedKeys="false" >
-		insert into t_account (uid,account,realname,operator,account_status,mobile_no,default_data,last_modify,create_time) values (#{uid},#{account},#{realname},#{operator},#{accountStatus},#{mobileNo},#{defaultData},#{lastModify},#{createTime})
+		insert into t_account (uid,account,password,realname,operator,account_status,mobile_no,default_data,last_modify,create_time) values (#{uid},#{account},#{realname},#{operator},#{accountStatus},#{mobileNo},#{defaultData},#{lastModify},#{createTime})
 	</insert>
 
 	<!-- 根据主键，删除数据 -->

@@ -64,6 +64,11 @@ public class AdminAccount implements Serializable {
 	 */
 	private String roleName;
 
+	/**
+	 * 密码
+	 */
+	private String password;
+
 	public void setUid(long uid) {
 		this.uid = uid;
 	}
@@ -154,5 +159,13 @@ public class AdminAccount implements Serializable {
 
 	public void setAccount(String account) {
 		this.account = account;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

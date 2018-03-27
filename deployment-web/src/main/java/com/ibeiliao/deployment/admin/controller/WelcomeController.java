@@ -1,28 +1,28 @@
 package com.ibeiliao.deployment.admin.controller;
 
 import com.ibeiliao.deployment.admin.annotation.authority.AllowAnonymous;
+import com.ibeiliao.deployment.admin.common.RestResult;
 import com.ibeiliao.deployment.admin.context.AdminContext;
 import com.ibeiliao.deployment.admin.context.AdminLoginUser;
 import com.ibeiliao.deployment.admin.context.AppConstants;
 import com.ibeiliao.deployment.admin.service.account.AdminAccountService;
+import com.ibeiliao.deployment.admin.utils.MD5Util;
 import com.ibeiliao.deployment.admin.utils.resource.MenuResource;
 import com.ibeiliao.deployment.admin.vo.account.AdminAccount;
 import com.ibeiliao.deployment.base.ApiCode;
 import com.ibeiliao.deployment.common.util.ParameterUtil;
-import com.ibeiliao.deployment.exception.ServiceException;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.net.URLDecoder;
-import java.util.List;
+import java.util.Objects;
 
 /**
  * 欢迎界面
@@ -36,6 +36,17 @@ public class WelcomeController {
 
     @Autowired
     AdminAccountService adminAccountService;
+
+
+    /**
+     * 登录界面
+     */
+    @RequestMapping("login")
+    @MenuResource("登录界面")
+    @AllowAnonymous
+    public String toLogin() {
+        return "login";
+    }
 
 
     /**
@@ -54,33 +65,25 @@ public class WelcomeController {
      * @param request
      * @param response
      * @param account
-     * @param token
+     * @param password
      * @return
      */
     @RequestMapping("/login.do")
     @MenuResource("授权登录")
     @AllowAnonymous
-    public String login(HttpServletRequest request, HttpServletResponse response, String account, String token){
+    @ResponseBody
+    public RestResult login(HttpServletRequest request, HttpServletResponse response, String account, String password){
 
         ParameterUtil.assertNotBlank(account, "账户不能为空");
-        ParameterUtil.assertNotBlank(token, "token不能为空");
+        ParameterUtil.assertNotBlank(password, "密码不能为空");
 
-        // TODO 提供一个账号登录
-        String t = "";//ssoProvider.getSessionId(account);
-        if (StringUtils.isEmpty(t) || !t.equals(token)){
-            logger.error("账户:{} 登录信息不匹配, 重新跳转登录页面 | token: {}, t: {}", account, token, t);
-            return "redirect:" + AppConstants.SSO_LOGIN_URL;
-        }
         AdminAccount adminAccount = adminAccountService.getByAccount(account);
         if (adminAccount == null){
-            logger.warn("账户:{} 登录账户不存在 | ", account);
-            throw new ServiceException(ApiCode.UNAUTHORIZED_ACCESS, "账户不存在");
+            return new RestResult(ApiCode.FAILURE, "账号不存在");
         }
 
-        List<Integer> appIdList = adminAccountService.listAccountApps(adminAccount.getUid());
-        if (CollectionUtils.isEmpty(appIdList) || !appIdList.contains(AppConstants.APP_ID_DEFAULT)){
-            logger.warn("账户:{} 没有应用权限 | ", account);
-            throw new ServiceException(ApiCode.UNAUTHORIZED_ACCESS, "没有应用权限");
+        if (!Objects.equals(MD5Util.md5(password), adminAccount.getPassword())) {
+            return new RestResult(ApiCode.FAILURE, "账号密码不正确");
         }
 
         AdminLoginUser loginUser = new AdminLoginUser();
@@ -89,8 +92,8 @@ public class WelcomeController {
 
         AdminContext.saveToCookie(response, loginUser);
         logger.info("登录成功 | uid: {}", adminAccount.getUid());
-        //返回欢迎页
-        return "redirect:/admin/welcome.xhtml";
+
+        return new RestResult(ApiCode.SUCCESS, "");
     }
 
     /**

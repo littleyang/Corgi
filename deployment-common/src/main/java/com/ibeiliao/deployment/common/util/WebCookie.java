@@ -31,9 +31,9 @@ public class WebCookie {
      * @param secure 是否只能使用 HTTPS
      */
     public WebCookie(String domain, boolean secure) {
-        if (StringUtils.isBlank(domain) ) {
+        /*if (StringUtils.isBlank(domain) ) {
             throw new IllegalArgumentException("'domain' cannot be empty.");
-        }
+        }*/
         this.domain = domain;
         this.secure = secure;
     }
@@ -64,7 +64,7 @@ public class WebCookie {
         Cookie cookie = new Cookie(name, value == null ? "" : value);
         cookie.setMaxAge(maxAge);
         cookie.setPath("/");
-        cookie.setDomain(domain);
+        //cookie.setDomain(domain);
         cookie.setHttpOnly(httpOnly); // 是否禁止js读取cookie
         cookie.setSecure(secure); // 如果为true，https下才传输cookie，解决cookie劫持的问题
         response.addCookie(cookie);

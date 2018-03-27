@@ -34,7 +34,7 @@ public class AdminContext {
     /** 一个签名，用于验证数据的合法性 */
     public static final String COOKIE_SIGN = "bladmin_sign";
 
-    public static final String DOMAIN = "ibeiliao.net";
+    public static final String DOMAIN = "";
 
     private static final String SIGN_KEY = "@uu2t[]2oisa&*93292)(---KJEIJi3u2";
 

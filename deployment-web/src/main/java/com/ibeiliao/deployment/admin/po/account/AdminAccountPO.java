@@ -51,6 +51,11 @@ public class AdminAccountPO implements Serializable {
 	/** 创建时间 */
 	private Date createTime;
 
+	/**
+	 * 密码
+	 */
+	private String password;
+
 
 	public void setAccount(String account) {
 		this.account = account;
@@ -124,4 +129,11 @@ public class AdminAccountPO implements Serializable {
 		this.uid = uid;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 }
