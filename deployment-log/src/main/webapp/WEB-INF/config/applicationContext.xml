@@ -8,11 +8,11 @@
 	  http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
 	  http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 	<!-- 读取加密的properties -->
-	<bean id="aesPropertiesEncoder" class="com.ibeiliao.platform.util.cfg.AesPropertiesEncoder" />
-	<bean id="propertyConfigurer" class="com.ibeiliao.platform.util.cfg.EncryptionPropertyPlaceholderConfigurer">
+	<bean id="aesPropertiesEncoder" class="com.ibeiliao.deployment.cfg.AesPropertiesEncoder" />
+	<bean id="propertyConfigurer" class="com.ibeiliao.deployment.cfg.EncryptionPropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
-				<value>classpath*:app.properties</value>
+				<value>classpath:app.properties</value>
 			</list>
 		</property>
 		<property name="encoder" ref="aesPropertiesEncoder"/>
