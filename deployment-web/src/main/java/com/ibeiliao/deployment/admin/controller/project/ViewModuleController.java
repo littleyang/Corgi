@@ -7,15 +7,14 @@ import com.ibeiliao.deployment.admin.service.global.ProjectEnvService;
 import com.ibeiliao.deployment.admin.service.project.ProjectModuleService;
 import com.ibeiliao.deployment.admin.service.project.ProjectService;
 import com.ibeiliao.deployment.admin.service.server.ServerGroupService;
-import com.ibeiliao.deployment.admin.utils.AliyunEcsUtil;
 import com.ibeiliao.deployment.admin.utils.resource.Menu;
 import com.ibeiliao.deployment.admin.utils.resource.MenuResource;
 import com.ibeiliao.deployment.admin.vo.global.ProjectEnv;
 import com.ibeiliao.deployment.admin.vo.project.*;
 import com.ibeiliao.deployment.admin.vo.server.ServerGroup;
+import com.ibeiliao.deployment.base.ApiCode;
 import com.ibeiliao.deployment.cmd.AnsibleCommandResult;
 import com.ibeiliao.deployment.cmd.CommandUtil;
-import com.ibeiliao.deployment.base.ApiCode;
 import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -179,6 +178,6 @@ public class ViewModuleController {
     @RequestMapping("getAllServers")
     @ResponseBody
     public RestResult<List<AliyunEcs>> getAllServers() {
-        return new RestResult<>(AliyunEcsUtil.load());
+        return new RestResult<>();
     }
 }
