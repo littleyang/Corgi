@@ -1,7 +1,7 @@
 package com.ibeiliao.deployment.cfg;
 
 
-import com.ibeiliao.deployment.common.util.AESUtil;
+import com.ibeiliao.deployment.common.util.SecurityAES;
 
 /**
  * AES实现加解密
@@ -13,13 +13,13 @@ public class AesPropertiesEncoder implements PropertiesEncoder {
     /**
      * the key
      */
-    private static final String KEY = "z$t05ch*pUe%";
+    public static final String KEY = "z$t05ch*pUe%";
 
     @Override
     public String encode(String str) {
         String s = "";
 		try {
-			s = AESUtil.encrypt(KEY, str);
+			s = SecurityAES.encryptAES(str, KEY);
 		} catch (Exception e) {
 			throw new RuntimeException("加密错误", e);
 		}
@@ -30,7 +30,7 @@ public class AesPropertiesEncoder implements PropertiesEncoder {
     public String decode(String str) {
         String s = "";
 		try {
-			s = AESUtil.decrypt(KEY, str);
+			s = SecurityAES.decrypt(str, KEY);
 		} catch (Exception e) {
 			throw new RuntimeException("解密错误: " + str, e);
 		}
