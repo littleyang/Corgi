@@ -666,7 +666,7 @@
                     $('#restartShell').val("com.alibaba.dubbo.container.Main");
                 }
                 if (compileShell == '' || !compileShellChanged) {
-                    $('#compileShell').val("mvn -P=$" + "{env} -Dmaven.test.skip=true -U clean install\ncp -f $" + "{moduleDir}/target/*.jar $" + "{targetDir}");
+                    $('#compileShell').val("mvn -P=$" + "{env} -Dmaven.test.skip=true -U clean install\n" + "cp `find ${moduleDir}/target/  -name \"*.jar\"` " + " ${targetDir}");
                 }
                 if (!stopShellChanged && isMainClass($('#restartShell').val())) {
                     $('#stopShell').val('');
