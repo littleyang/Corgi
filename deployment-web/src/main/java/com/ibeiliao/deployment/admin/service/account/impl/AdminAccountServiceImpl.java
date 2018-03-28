@@ -83,14 +83,10 @@ public class AdminAccountServiceImpl implements AdminAccountService {
 	@Override
 	public void addOrUpdate(AdminAccount account, Set<Integer> roleIds) {
 		ParameterUtil.assertNotNull(account, "account不能为null");
-		if (account.getUid() <= 0) {
-			throw new ServiceException(ApiCode.PARAMETER_ERROR, "用户ID错误");
-		}
-		AdminAccountPO po = adminAccountDao.getById(account.getUid());
-		if (po == null) {
+
+		if (account.getUid() == 0) {
 			add(account, roleIds);
-		}
-		else {
+		} else {
 			update(account, roleIds);
 		}
 	}
