@@ -170,10 +170,6 @@ public class AdminAccountServiceImpl implements AdminAccountService {
 		ParameterUtil.assertNotBlank(vo.getRealname(), "真实姓名不能为空");
 		ParameterUtil.assertMaxLength(vo.getRealname(), 30, "真实姓名长度不能超过30个字符");
 
-		if (vo.getUid() <= 0) {
-			throw new ServiceException(ApiCode.PARAMETER_ERROR, "帐号ID不能为空.");
-		}
-
 		if (roleIds == null || roleIds.isEmpty()) {
 			throw new ServiceException(ApiCode.PARAMETER_ERROR, "需要分配角色给用户，如果没有角色，请先创建角色.");
 		}
