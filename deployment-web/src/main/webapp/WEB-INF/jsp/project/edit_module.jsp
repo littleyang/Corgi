@@ -171,7 +171,7 @@
                             <div class="form-group">
                                 <label>编译脚本(参考如下，<span class="text-danger">每行一条指令</span>)：</label> <br/>
                                 mvn -P=&#36;{env} -Dmaven.test.skip=true -U clean install<br/>
-                                cp -f &#36;{moduleDir}/target/*.<b>jar</b> &#36;{targetDir}<br/>
+                                cp `find ${moduleDir}/target/  -name "*.jar"` ${targetDir}<br/>
                                 或 cp -f &#36;{moduleDir}/target/*.<b>war</b> &#36;{targetDir}<br/>
                                 <textarea class="form-control" id="compileShell" placeholder="编译脚本"
                                           onkeypress="changeCompileShell()"></textarea>
