@@ -97,10 +97,6 @@
                                                    placeholder="svn基地址,不要包含tags/、trunk/、branches"
                                                    title="svn基地址,不要包含tags/、trunk/、branches"/>
                                         </div>
-                                        <div class="col-md-4">
-                                            svn内网地址：https://svn-3c6c.ibeiliao.net/...<br/>
-                                            git内网地址： http://gits-lan.ibeiliao.net/...
-                                        </div>
                                     </div>
                                 </div>
 

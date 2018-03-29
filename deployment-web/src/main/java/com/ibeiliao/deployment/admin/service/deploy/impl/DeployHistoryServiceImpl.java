@@ -820,7 +820,7 @@ public class DeployHistoryServiceImpl implements DeployHistoryService {
                 StaticTransferService staticTransferService = new StaticTransferService(request);
                 return staticTransferService.pushPackageToServer();
             } else {
-                logger.info("开始回滚");
+                logger.info("开始发布");
                 JavaTransferService javaTransferService = new JavaTransferService(request);
                 return javaTransferService.pushPackageToServer();
             }
