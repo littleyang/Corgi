@@ -39,7 +39,7 @@ CREATE TABLE `t_account` (
 --  Records of `t_account`
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_account` VALUES ('1', 'e10adc3949ba59abbe56e057f20f883e', 'root', '1', 'root', '15520000000', '2018-03-26 20:59:56', '2018-03-26 20:59:59', '1', '1');
+INSERT INTO `t_account` VALUES ('1', '1BF87CFC0BD0ECD939D588BE89D052F6', 'root', '1', 'root', '15520000000', '2018-03-26 20:59:56', '2018-03-26 20:59:59', '1', '1');
 COMMIT;
 
 -- ----------------------------
