@@ -61,9 +61,5 @@ Corgi
 功能介绍：[一个发布系统至少应该包含的功能](/doc/a-deployment-system.md)    
 最佳实践：[贝聊在系统上的使用总结](/doc/best-practice-in-BL.md)  
 
-
-# 交流
-QQ：309890577
-
 # Author
 贝聊研发部平台开发组：林毅、梁广龙、李东耀、李海文  
