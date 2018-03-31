@@ -10,7 +10,7 @@ import java.util.Date;
  * <p>
  * 详细 :
  *
- * @author liangguanglong 2018/3/26
+ * @author K-Priest 2018/3/26
  */
 public class MD5Test {
 

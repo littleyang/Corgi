@@ -5,7 +5,7 @@ package com.ibeiliao.deployment.transfer.enums;
  * <p>
  * 详细 :
  *
- * @author liangguanglong 17/5/10
+ * @author K-Priest 17/5/10
  */
 public enum DeployType {
 

@@ -27,7 +27,7 @@ import static com.ibeiliao.deployment.constant.tpl.CompileTplArgs.MVN_CP_SHELL;
  * <p>
  * 详细 :
  *
- * @author liangguanglong 17/3/27
+ * @author K-Priest 17/3/27
  */
 public class CompileShellTemplate {
 

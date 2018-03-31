@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * 详情 :  GlobalSettingService 实现类
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 @Service
 public class GlobalSettingServiceImpl implements GlobalSettingService {

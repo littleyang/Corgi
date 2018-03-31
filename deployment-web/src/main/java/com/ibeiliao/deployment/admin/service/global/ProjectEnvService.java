@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * 详情 :  环境的服务
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 public interface ProjectEnvService {
 

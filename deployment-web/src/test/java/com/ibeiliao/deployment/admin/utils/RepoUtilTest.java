@@ -38,7 +38,7 @@ public class RepoUtilTest {
     @Test
     public void testGetNewModuleFinalName() throws Exception {
         String finalNameForGit = RepoUtil.getFinalNameForGit("platform-admin", "http://gits.ibeiliao.net/platform/platform-parent.git",
-                "liangguanglong", "kevin711", "master");
+                "K-Priest", "kevin711", "master");
         Assert.assertTrue(StringUtils.isNotBlank(finalNameForGit));
     }
 }

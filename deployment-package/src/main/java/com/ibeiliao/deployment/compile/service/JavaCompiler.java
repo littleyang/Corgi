@@ -16,7 +16,7 @@ import com.ibeiliao.deployment.log.PushLogService;
  * 3. 执行编译脚本
  * 4. 执行oss脚本进行传输
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 public class JavaCompiler extends AbstractCompiler {
 

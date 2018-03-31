@@ -31,7 +31,7 @@ import java.util.Map;
  * 功能：编辑模块
  * 详细：
  *
- * @author liangguanglong, 迁移by linyi, 2017/2/4.
+ * @author K-Priest, 迁移by linyi, 2017/2/4.
  */
 @Menu(name = "模块详情", parent = "项目管理", sequence = 500037)
 @Controller

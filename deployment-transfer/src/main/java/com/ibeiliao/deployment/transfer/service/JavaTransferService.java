@@ -32,7 +32,7 @@ import java.util.Map;
  * <p>
  * 详细 :
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 public class JavaTransferService extends AbstractTransferService {
 

@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * 详情 : 项目详情 VO
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 public class ProjectDetailInfo {
 

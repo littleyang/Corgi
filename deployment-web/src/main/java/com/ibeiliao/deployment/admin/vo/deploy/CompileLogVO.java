@@ -7,7 +7,7 @@ import java.util.List;
  * <p>
  * 详细 :
  *
- * @author liangguanglong 2017/8/16
+ * @author K-Priest 2017/8/16
  */
 public class CompileLogVO {
 

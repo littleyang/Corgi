@@ -21,7 +21,7 @@ import java.util.List;
  * <p>
  * 详细 :
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 public class StaticTransferService extends AbstractTransferService {
 

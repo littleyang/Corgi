@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * t_module_jvm 表的操作接口
  * 
- * @author liangguanglong 2017-02-24
+ * @author K-Priest 2017-02-24
  */
 @MyBatisDao
 public interface ModuleJvmDao {

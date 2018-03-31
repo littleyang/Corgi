@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * 详情 : 传输文件结果
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 public class TransferResult {
 

@@ -5,7 +5,7 @@ package com.ibeiliao.deployment.constant.tpl;
  * <p>
  * 详细 :
  *
- * @author liangguanglong 17/2/27
+ * @author K-Priest 17/2/27
  */
 public interface StartupTplArgs {
 

@@ -15,7 +15,7 @@ import java.io.IOException;
  * <p>
  * 详细 :
  *
- * @author liangguanglong 17/3/28
+ * @author K-Priest 17/3/28
  */
 public class CompileShellTemplateTest {
 
@@ -96,7 +96,7 @@ public class CompileShellTemplateTest {
         request.setEnv("dev");
         request.setRepoType(ModuleRepoType.SVN.getValue());
         request.setSvnAddr("http://svn.ibeiliao.net/svn/beiliao/beiliao/support-kms-parent");
-        request.setSvnUserName("liangguanglong");
+        request.setSvnUserName("K-Priest");
         request.setSvnPassword("bBl03413pPXD");
         request.setModuleType(ModuleType.STATIC.getValue());
         request.setTagName("trunk");

@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * 详情 :  环境的控制器
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 @Menu(name="环境列表", parent = "全局配置管理", sequence = 500036)
 @Controller

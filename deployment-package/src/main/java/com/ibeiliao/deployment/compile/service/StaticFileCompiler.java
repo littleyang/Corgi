@@ -12,7 +12,7 @@ import com.ibeiliao.deployment.log.PushLogService;
  * <p>
  * 详细 : 步骤
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 public class StaticFileCompiler extends AbstractCompiler {
 

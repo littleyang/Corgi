@@ -3,7 +3,7 @@ package com.ibeiliao.deployment.compile.vo;
 /**
  * 详情 : 编译的返回结果
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 public class CompileResult {
 

@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * 详情 :  账户与项目的关系 service
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 public interface ProjectAccountRelationService {
 

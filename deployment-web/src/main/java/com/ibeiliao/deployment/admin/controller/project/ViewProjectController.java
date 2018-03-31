@@ -51,7 +51,7 @@ import java.util.List;
 /**
  * 详情 : 项目详情
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 @Menu(name = "项目详情", parent = "项目管理", sequence = 500038)
 @Controller

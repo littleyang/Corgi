@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * 详情 :  项目模块的服务
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 public interface ProjectModuleService {
 

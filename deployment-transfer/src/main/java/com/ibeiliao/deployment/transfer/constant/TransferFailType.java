@@ -3,7 +3,7 @@ package com.ibeiliao.deployment.transfer.constant;
 /**
  * 详情 : 传输环节失败的类型
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 public enum TransferFailType {
     /**

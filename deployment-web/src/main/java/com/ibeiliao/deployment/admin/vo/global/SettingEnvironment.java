@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * 详情 :
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 public class SettingEnvironment {
 

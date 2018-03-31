@@ -13,7 +13,7 @@ import java.util.List;
  * <p>
  * 详细 : 归档tar
  *
- * @author liangguanglong 17/3/9
+ * @author K-Priest 17/3/9
  */
 public class FileCompressUtil {
 

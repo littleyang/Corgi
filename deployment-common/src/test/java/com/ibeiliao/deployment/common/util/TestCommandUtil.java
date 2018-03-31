@@ -12,7 +12,7 @@ import org.junit.Test;
  * <p>
  * 详细 :
  *
- * @author liangguanglong 17/2/17
+ * @author K-Priest 17/2/17
  */
 public class TestCommandUtil {
 

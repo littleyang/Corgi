@@ -3,7 +3,7 @@ package com.ibeiliao.deployment.compile.vo;
 /**
  * 详情 : 每次的编译请求参数
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 public class CompileRequest {
 

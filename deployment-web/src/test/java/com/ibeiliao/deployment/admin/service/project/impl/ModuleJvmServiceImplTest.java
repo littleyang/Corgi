@@ -21,7 +21,7 @@ import java.util.ArrayList;
  * <p>
  * 详细 :
  *
- * @author liangguanglong 17/2/24
+ * @author K-Priest 17/2/24
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath*:applicationContext.xml")

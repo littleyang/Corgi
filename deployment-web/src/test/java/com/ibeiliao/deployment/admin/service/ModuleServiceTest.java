@@ -22,7 +22,7 @@ import java.util.Map;
 /**
  * 详情 :
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath*:applicationContext.xml")

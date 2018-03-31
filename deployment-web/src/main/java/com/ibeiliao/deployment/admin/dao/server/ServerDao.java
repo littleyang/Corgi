@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * t_server 表的操作接口
  * 
- * @author liangguanglong 2017-01-18
+ * @author K-Priest 2017-01-18
  */
 @MyBatisDao
 public interface ServerDao {

@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * 详情 : 项目 service
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 @Service
 public class ProjectServiceImpl implements ProjectService {

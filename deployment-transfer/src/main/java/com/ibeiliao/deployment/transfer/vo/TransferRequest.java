@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * 详情 : 传输请求
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 public class TransferRequest {
 

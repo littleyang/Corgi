@@ -17,7 +17,7 @@ import java.util.List;
  * <p>
  * 详细 :
  *
- * @author liangguanglong 17/2/24
+ * @author K-Priest 17/2/24
  */
 @Service
 public class ModuleJvmServiceImpl implements ModuleJvmService {

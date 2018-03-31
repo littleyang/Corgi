@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * 详情 :
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 @Service
 public class ProjectAccountRelationServiceImpl implements ProjectAccountRelationService {

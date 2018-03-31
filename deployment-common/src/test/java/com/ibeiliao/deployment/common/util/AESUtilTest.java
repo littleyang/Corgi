@@ -10,7 +10,7 @@ import java.util.Objects;
  * <p>
  * 详细 :
  *
- * @author liangguanglong 2018/2/6
+ * @author K-Priest 2018/2/6
  */
 public class AESUtilTest {
 

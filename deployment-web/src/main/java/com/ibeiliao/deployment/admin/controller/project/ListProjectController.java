@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * 详情 :  项目列表
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 @Menu(name = "项目列表", parent = "项目管理", sequence = 500039)
 @Controller

@@ -3,7 +3,7 @@ package com.ibeiliao.deployment.compile.constant;
 /**
  * 详情 : 编译环节报错的类型
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 public enum CompileFailType {
 

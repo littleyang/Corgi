@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * 详情 :  服务器service
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 public interface ServerService {
 

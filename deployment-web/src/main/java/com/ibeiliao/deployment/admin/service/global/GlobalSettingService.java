@@ -7,7 +7,7 @@ import com.ibeiliao.deployment.admin.po.global.GlobalSettingPO;
 /**
  * 详情 : 全局配置service
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 public interface GlobalSettingService {
 

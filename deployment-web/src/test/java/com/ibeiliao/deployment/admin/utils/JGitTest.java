@@ -21,7 +21,7 @@ import java.util.Map;
  * <p>
  * 详细 :
  *
- * @author liangguanglong 17/3/29
+ * @author K-Priest 17/3/29
  */
 public class JGitTest {
 
@@ -41,7 +41,7 @@ public class JGitTest {
     @Test
     public void testClone() throws IOException, GitAPIException {
         long begin = System.currentTimeMillis();
-        CredentialsProvider cp = new UsernamePasswordCredentialsProvider("liangguanglong", "kevin711");
+        CredentialsProvider cp = new UsernamePasswordCredentialsProvider("kevin", "111");
 
         Git cloneGit = Git.cloneRepository().setURI(remotePath)
                 .setCredentialsProvider(cp)
@@ -58,7 +58,7 @@ public class JGitTest {
                 .setGitDir(new File("/Users/kevin/beiliao/gitlab/platform-parent/.git"))
                 .build();
         Git git = new Git(existingRepo);
-        CredentialsProvider cp = new UsernamePasswordCredentialsProvider("liangguanglong", "kevin711");
+        CredentialsProvider cp = new UsernamePasswordCredentialsProvider("K-Priest", "kevin711");
         Collection<Ref> refs = git.lsRemote().setCredentialsProvider(cp).setRemote("origin").call();
         for (Ref ref : refs) {
             System.out.println(ref.getObjectId().getName());
@@ -67,7 +67,7 @@ public class JGitTest {
 
     @Test
     public void testRemoteInfoWithoutClone() throws GitAPIException {
-        CredentialsProvider cp = new UsernamePasswordCredentialsProvider("liangguanglong", "kevin711");
+        CredentialsProvider cp = new UsernamePasswordCredentialsProvider("K-Priest", "kevin711");
 
         Collection<Ref> refs = Git.lsRemoteRepository()
                 .setHeads(true)
@@ -85,13 +85,13 @@ public class JGitTest {
     @Test
     public void testGetBranchesWithoutClone() throws GitAPIException, IOException {
         String originURL = "http://gits.ibeiliao.net/platform/platform-parent.git";
-        Map<String, String> branchInfo = RepoUtil.getGitAllBranchInfo(originURL, "liangguanglong", "kevin711");
+        Map<String, String> branchInfo = RepoUtil.getGitAllBranchInfo(originURL, "K-Priest", "kevin711");
         assert branchInfo.isEmpty();
     }
 
     @Test
     public void testReadFinalName() throws Exception {
-        String finalNameForGit = RepoUtil.getFinalNameForGit("platform-admin", "http://gits.ibeiliao.net/platform/platform-parent.git", "liangguanglong", "kevin711", "branches/20170505_test");
+        String finalNameForGit = RepoUtil.getFinalNameForGit("platform-admin", "http://gits.ibeiliao.net/platform/platform-parent.git", "K-Priest", "kevin711", "branches/20170505_test");
         System.out.println(finalNameForGit);
     }
 }

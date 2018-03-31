@@ -20,7 +20,7 @@ import java.io.IOException;
  * <p>
  * 详细 :
  *
- * @author liangguanglong 17/3/28
+ * @author K-Priest 17/3/28
  */
 public class RestartShellTemplate {
 

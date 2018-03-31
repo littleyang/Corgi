@@ -43,7 +43,7 @@ import java.util.*;
 /**
  * 详情 : 项目模块服务
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 @Service
 public class ProjectModuleServiceImpl implements ProjectModuleService {

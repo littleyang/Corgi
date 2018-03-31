@@ -28,7 +28,7 @@ import java.util.List;
  * <p>
  * 详细 :
  *
- * @author liangguanglong 17/5/9
+ * @author K-Priest 17/5/9
  */
 public abstract class AbstractCompiler {
 

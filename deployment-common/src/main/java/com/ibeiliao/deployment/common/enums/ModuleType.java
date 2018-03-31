@@ -3,7 +3,7 @@ package com.ibeiliao.deployment.common.enums;
 /**
  * 详情 : 模块类型的常量
  *
- * @author liangguanglong
+ * @author K-Priest
  */
 public enum ModuleType {
     /**

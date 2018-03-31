@@ -5,7 +5,7 @@ package com.ibeiliao.deployment.common;
  * <p>
  * 详细 : 包括编译和启动
  *
- * @author liangguanglong 17/3/20
+ * @author K-Priest 17/3/20
  */
 public interface ModuleUserShellArgs {
 
