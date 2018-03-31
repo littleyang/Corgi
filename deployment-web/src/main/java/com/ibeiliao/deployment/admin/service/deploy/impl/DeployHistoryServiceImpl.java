@@ -164,11 +164,6 @@ public class DeployHistoryServiceImpl implements DeployHistoryService {
         if (projectEnvService.isOnline(deployHistory.getEnvId())) {
             return true;
         }
-        // 2. 测试环境的，而且被设置了需要审核，那也要审核
-        if (module.getNeedAudit() == Constants.TRUE) {
-            ProjectEnv env = projectEnvService.getById(deployHistory.getEnvId());
-            return "test".equalsIgnoreCase(env.getEnvName());
-        }
         return false;
     }
 
