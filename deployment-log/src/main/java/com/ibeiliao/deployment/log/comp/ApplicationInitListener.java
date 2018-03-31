@@ -26,7 +26,6 @@ public class ApplicationInitListener implements ApplicationListener<ContextRefre
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        logger.info("===容器初始化===");
         logger.info("启动同步日志线程...");
         logSyncService.startupSyncShellLog();
     }

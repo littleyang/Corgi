@@ -2,9 +2,9 @@ package com.ibeiliao.deployment.admin.utils;
 
 
 
-import java.util.List;
-
 import com.ibeiliao.deployment.admin.utils.resource.MenuItem;
+
+import java.util.List;
 
 
 /**
@@ -13,18 +13,6 @@ import com.ibeiliao.deployment.admin.utils.resource.MenuItem;
  * 2014年2月27日
  */
 public class HtmlMenuGenerator {
-//
-//	/**
-//	 * 每级菜单的CSS名称，最多3级，2级对应LEVEL_CSS[2]，以此类推
-//	 */
-//	private static final String[] LEVEL_CSS = new String[] {
-//		"",
-//		"",
-//		"nav-second-level",
-//		"nav-third-level",
-//		"",
-//		""
-//	};
 
 	/**
 	 * 输出菜单的HTML代码

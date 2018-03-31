@@ -35,9 +35,4 @@ public class TestTransfer {
         //JavaTransferService.buildModuleRestartShell(transferRequest, new TransferResult());
     }
 
-    @Test
-    public void testTemplate() {
-
-    }
-
 }

@@ -1,6 +1,5 @@
 package com.ibeiliao.deployment.cmd;
 
-import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.ibeiliao.deployment.common.enums.DeployResult;
@@ -272,74 +271,4 @@ public class AnsibleCommand extends LocalCommand {
         }
     }
 
-    public static void main(String[] args) {
-        String message = "10.51.34.26 | SUCCESS => {\n" +
-                "    \"changed\": false,\n" +
-                "    \"checksum\": \"adc83b19e793491b1c6ea0fd8b46cd9f32e592fc\",\n" +
-                "    \"dest\": \"/data/test/cpfile.log\",\n" +
-                "    \"gid\": 100,\n" +
-                "    \"group\": \"users\",\n" +
-                "    \"mode\": \"0755\",\n" +
-                "    \"owner\": \"web\",\n" +
-                "    \"path\": \"/data/test/cpfile.log\",\n" +
-                "    \"size\": 1,\n" +
-                "    \"state\": \"file\",\n" +
-                "    \"uid\": 1008\n" +
-                "}\n" +
-                "10.117.67.177 | FAILED! => {\n" +
-                "    \"changed\": false,\n" +
-                "    \"checksum\": \"adc83b19e793491b1c6ea0fd8b46cd9f32e592fc\",\n" +
-                "    \"failed\": true,\n" +
-                "    \"msg\": \"Destination /data/test not writable\"\n" +
-                "}\n" +
-                "10.168.166.3 | FAILED! => {\n" +
-                "    \"changed\": false,\n" +
-                "    \"checksum\": \"adc83b19e793491b1c6ea0fd8b46cd9f32e592fc\",\n" +
-                "    \"failed\": true,\n" +
-                "    \"msg\": \"Destination /data not writable\"\n" +
-                "}\n" +
-                "100.117.67.178 | UNREACHABLE! => {\n" +
-                "    \"changed\": false,\n" +
-                "    \"msg\": \"Failed to connect to the host via ssh: ssh: connect to host 100.117.67.177 port 32200: Connection timed out\\r\\n\",\n" +
-                "    \"unreachable\": true\n" +
-                "}";
-        List<String> hosts = new ArrayList<>();
-        hosts.add("10.51.34.26");
-        hosts.add("10.117.67.177");
-        hosts.add("10.168.166.3");
-        hosts.add("100.117.67.178");
-
-        AnsibleCommandResult result = parse(message, hosts);
-        System.out.println(JSON.toJSONString(result));
-//
-//        System.out.println("---");
-//        message = "10.51.34.26 | SUCCESS => {\n" +
-//                "    \"changed\": false,\n" +
-//                "    \"checksum\": \"adc83b19e793491b1c6ea0fd8b46cd9f32e592fc\",\n" +
-//                "    \"dest\": \"/data/test/cpfile.log\",\n" +
-//                "    \"gid\": 100,\n" +
-//                "    \"group\": \"users\",\n" +
-//                "    \"mode\": \"0755\",\n" +
-//                "    \"owner\": \"web\",\n" +
-//                "    \"path\": \"/data/test/cpfile.log\",\n" +
-//                "    \"size\": 1,\n" +
-//                "    \"state\": \"file\",\n" +
-//                "    \"uid\": 1008\n" +
-//                "}";
-//        message = "10.51.34.26 | SUCCESS => {\n";
-//        parse(message);
-//        String message = "100.51.34.29 | UNREACHABLE! => {    \"changed\": false,     \"msg\": \"Failed to connect to the host via ssh: ssh: connect to host 100.51.34.29 port 32200: Connection timed out\\r\\n\",     \"unreachable\": true}100.51.34.30 | UNREACHABLE! => {    \"changed\": false,     \"msg\": \"Failed to connect to the host via ssh: ssh: connect to host 100.51.34.30 port 32200: Connection timed out\\r\\n\",     \"unreachable\": true}";
-//        List<String> hosts = new ArrayList<>();
-//        hosts.add("100.51.34.29");
-//        hosts.add("100.51.34.30");
-//        AnsibleCommandResult result = parse(message, hosts);
-//        System.out.println(result.getIp2ResultMap().size());
-
-//        String message = "10.51.34.26 | SUCCESS | rc=0 >>/data/project/coupon//pf-coupon-impl.:/home/jdk/lib/dt.jar:/home/jdk/lib/tools.jar:/home/jdk/jre/lib/rt.jar:/data/project/coupon//pf-coupon-impl/*stop pf-coupon-impl ......pf-coupon-impl 已经停止starting pf-coupon-impl.........pf-coupon-impl started. see /data/logs/coupon/pf-coupon-impl//app.log0";
-//        List<String> hosts = new ArrayList<>();
-//        hosts.add("10.51.34.26");
-//        AnsibleCommandResult result = parse(message, hosts);
-//        System.out.println(result.getSuccessType());
-//        System.out.println(result.getIp2ResultMap().size());
-    }
 }
