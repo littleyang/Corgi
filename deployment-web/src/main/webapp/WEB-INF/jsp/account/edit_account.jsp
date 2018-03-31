@@ -68,7 +68,7 @@
 						<div class="form-group">
 							<label class="col-md-2 control-label">密码</label>
 							<div class="col-md-3">
-								<input class="form-control" type="text" id="password" name="password"
+								<input class="form-control" type="password" id="password" name="password"
 									   title="密码" placeholder="密码" maxlength="30" data-minlength="1" required="true">
 							</div>
 						</div>

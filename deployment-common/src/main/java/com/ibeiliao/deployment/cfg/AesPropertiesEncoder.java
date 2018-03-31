@@ -12,7 +12,7 @@ public class AesPropertiesEncoder implements PropertiesEncoder {
      /**
      * the key
      */
-    private static final String KEY = "z$t05ch*pUe%";
+    private static final String KEY = "*osnU8jE5L2!!1p7";
 
     @Override
     public String encode(String str) {
@@ -38,8 +38,8 @@ public class AesPropertiesEncoder implements PropertiesEncoder {
 
     public static void main(String[] args) {
         AesPropertiesEncoder encoder = new AesPropertiesEncoder();
-        System.out.println(encoder.encode(""));
         System.out.println(encoder.encode("root"));
+        System.out.println(encoder.encode("123456"));
     }
-
 }
+

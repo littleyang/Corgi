@@ -10,6 +10,7 @@ import com.ibeiliao.deployment.admin.utils.MD5Util;
 import com.ibeiliao.deployment.admin.utils.resource.MenuResource;
 import com.ibeiliao.deployment.admin.vo.account.AdminAccount;
 import com.ibeiliao.deployment.base.ApiCode;
+import com.ibeiliao.deployment.cfg.AesPropertiesEncoder;
 import com.ibeiliao.deployment.common.util.ParameterUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +34,8 @@ import java.util.Objects;
 public class WelcomeController {
 
     private static final Logger logger = LoggerFactory.getLogger(WelcomeController.class);
+
+    private static AesPropertiesEncoder encoder = new AesPropertiesEncoder();
 
     @Autowired
     AdminAccountService adminAccountService;
@@ -82,7 +85,7 @@ public class WelcomeController {
             return new RestResult(ApiCode.FAILURE, "账号不存在");
         }
 
-        if (!Objects.equals(MD5Util.md5(password), adminAccount.getPassword())) {
+        if (!Objects.equals(encoder.encode(password), adminAccount.getPassword())) {
             return new RestResult(ApiCode.FAILURE, "账号密码不正确");
         }
 
@@ -107,6 +110,7 @@ public class WelcomeController {
     @AllowAnonymous
     public String logout(HttpServletRequest request, HttpServletResponse response){
         AdminContext.clearCookie(response);
+        AdminContext.clear();
         return "redirect:" + AppConstants.SSO_LOGIN_URL;
     }
 

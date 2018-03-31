@@ -22,7 +22,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `t_account`;
 CREATE TABLE `t_account` (
-  `uid` bigint(11) NOT NULL DEFAULT '0' COMMENT '主键',
+  `uid` bigint(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `password` varchar(64) NOT NULL COMMENT '密码',
   `account` varchar(50) NOT NULL COMMENT '贝聊账号',
   `operator` int(11) NOT NULL DEFAULT '0' COMMENT '操作人id',
@@ -33,13 +33,13 @@ CREATE TABLE `t_account` (
   `account_status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '用户状态，1-正常,2-冻结',
   `default_data` tinyint(2) NOT NULL DEFAULT '0' COMMENT '是否是基本用户( 可以理解为是否是管理员)，0-不是，1-是,不可以删除',
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 -- ----------------------------
 --  Records of `t_account`
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_account` VALUES ('1', 'e10adc3949ba59abbe56e057f20f883e', 'lgl', '1', '梁广龙', '15521110047', '2018-03-26 20:59:56', '2018-03-26 20:59:59', '1', '1');
+INSERT INTO `t_account` VALUES ('1', 'e10adc3949ba59abbe56e057f20f883e', 'root', '1', 'root', '15520000000', '2018-03-26 20:59:56', '2018-03-26 20:59:59', '1', '1');
 COMMIT;
 
 -- ----------------------------

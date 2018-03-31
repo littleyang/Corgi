@@ -3,12 +3,12 @@ package com.ibeiliao.deployment.admin.controller.account;
 import com.ibeiliao.deployment.admin.annotation.log.AdminLog;
 import com.ibeiliao.deployment.admin.common.RestResult;
 import com.ibeiliao.deployment.admin.service.account.AdminAccountService;
-import com.ibeiliao.deployment.admin.utils.MD5Util;
 import com.ibeiliao.deployment.admin.utils.resource.Menu;
 import com.ibeiliao.deployment.admin.utils.resource.MenuResource;
 import com.ibeiliao.deployment.admin.vo.account.AccountRoleRelation;
 import com.ibeiliao.deployment.admin.vo.account.AdminAccount;
 import com.ibeiliao.deployment.base.ApiCode;
+import com.ibeiliao.deployment.cfg.AesPropertiesEncoder;
 import com.ibeiliao.deployment.common.util.JsonUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -36,6 +36,9 @@ import java.util.Set;
 public class EditAccountController {
 
     private static final Logger logger = LoggerFactory.getLogger(EditAccountController.class);
+
+      private static AesPropertiesEncoder aesPropertiesEncoder = new AesPropertiesEncoder();
+
 
     @Autowired
     private AdminAccountService adminAccountService;
@@ -82,7 +85,7 @@ public class EditAccountController {
         /**
          * 对更新的密码用MD5加密
          */
-        account.setPassword(MD5Util.md5(account.getPassword()));
+        account.setPassword(aesPropertiesEncoder.encode(account.getPassword()));
 
         Set<Integer> roles = new HashSet<>();
         roles.add(account.getRoleId());
@@ -103,7 +106,7 @@ public class EditAccountController {
     @ResponseBody
     public RestResult<AdminAccount> getAdmin(long uid) {
         AdminAccount account = adminAccountService.getById(uid);
-        RestResult<AdminAccount> result = null;
+        RestResult<AdminAccount> result;
         if (account == null) {
             result = new RestResult<>(ApiCode.FAILURE, "管理员不存在：uid=" + uid);
         }
@@ -112,6 +115,7 @@ public class EditAccountController {
             if (list.size() == 1) {
                 account.setRoleId(list.get(0).getRoleId());
             }
+            account.setPassword(aesPropertiesEncoder.decode(account.getPassword()));
             result = new RestResult<>(account);
         }
         return result;

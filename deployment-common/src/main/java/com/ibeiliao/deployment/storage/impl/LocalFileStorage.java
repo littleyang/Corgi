@@ -23,15 +23,7 @@ public class LocalFileStorage implements ProjectFileStorage {
 
     @Override
     public boolean exists(String filename) {
-        
         return false;
-        // 1. 判断本地有没有文件
-        /*if (!isFileExist(filename)) {
-            // 2. 如果没有，scp 编译服务器 /data/storage/filename 到本地
-            //doDownload(filename, new File(FileStorageUtil.getLocalFileStorageName(filename)));
-        }
-        // 3. 判断本地有没有文件
-        return isFileExist(filename);*/
     }
 
     @Override
